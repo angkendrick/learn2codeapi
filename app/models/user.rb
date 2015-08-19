@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :likes
 
-  #mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
 
   # validates :username, presence: true, uniqueness: true, format: { with: /\A[\w]+\z/}
   # validates :email, uniqueness: true, format: {with: /[\w]+[@]{1}[\w]+[\.]{1}[A-z]{2,}/}
