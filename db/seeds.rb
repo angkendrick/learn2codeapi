@@ -23,7 +23,7 @@ Subject.create(name: 'Swift', description: "Swift is a multi-paradigm, compiled 
 Subject.create(name: 'HTML', description: "HTML is short for HyperText Markup Language, the authoring language used to create documents on the World Wide Web. HTML is similar to SGML, although it is not a strict subset. HTML defines the structure and layout of a Web document by using a variety of tags and attributes.")
 Subject.create(name: 'CSS', description: 'CSS stands for "Cascading Style Sheet." Cascading style sheets are used to format the layout of Web pages. They can be used to define text styles, table sizes, and other aspects of Web pages that previously could only be defined in a page\'s HTML.')
 
-User.create(username: "TestUser", first_name: "John", last_name: "Smith", email: "John.Smith@gmail.com")
+User.create(username: "TestUser", first_name: "John", password: "123456", password_confirmation: "123456", last_name: "Smith", email: "John.Smith@gmail.com")
 
 Tutorial.create(name: 'Try Ruby', description: '15-minute guided introduction to common Ruby methods', url: 'http://tryruby.org/', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Code School')
 Tutorial.create(name: 'Ruby in 100 Minutes', description: 'Overview of Ruby that will probably take you more than 100 minutes to complete', url: 'http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html', cost: 0.0, difficulty: 'beginner', format: 'article', company: 'Jumpstart Labs')

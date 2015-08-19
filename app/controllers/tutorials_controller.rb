@@ -9,21 +9,20 @@ class TutorialsController < ApplicationController
   end
 
   def create
+
     @tutorial = Tutorial.new(secure_params)
-    #@tutorial.user_id = current_user.id
-    #@tutorial.subjects << Subject.find((params[:tutorial_subjects][:subject_id]).to_i)
 
     if @tutorial.save
-      render json: @tutorial
+      render json: @tutorial.to_json(except: [:created_at, :updated_at])
     else
-      render json: { error: 'Failed to save to database' }, status: 422
+      render json: { errors: :@tutorial.errors.as_json }, status: 422
     end
 
   end
 
   def show
     @tutorial = Tutorial.find(params[:id])
-    render json: @tutorial
+    #render json: @tutorial.to_json(include: :user, except: [:created_at, :updated_at])
   end
 
   def update
