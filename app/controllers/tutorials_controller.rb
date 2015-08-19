@@ -1,10 +1,11 @@
 class TutorialsController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token
+  before_action :require_login, only: [:create, :update, :destroy]
 
   def index
     @tutorials = Tutorial.all
-    render json: @tutorials
+    #render json: @tutorials.to_json(include: :subjects, except: [:created_at, :updated_at])
+
   end
 
   def create
@@ -13,21 +14,11 @@ class TutorialsController < ApplicationController
     #@tutorial.subjects << Subject.find((params[:tutorial_subjects][:subject_id]).to_i)
 
     if @tutorial.save
-      render json: { message:'Save OK!', status: '200' }
+      render json: @tutorial
     else
-      render json: { error: 'Failed to save to database', status: '500' }
+      render json: { error: 'Failed to save to database' }, status: 422
     end
 
-  end
-
-  def new
-    @tutorial = Tutorial.new
-    render json: { page: 'new'}
-  end
-
-  def edit
-    @tutorial = Tutorial.find(params[:id])
-    render json: @tutorial
   end
 
   def show
@@ -39,9 +30,9 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.find(params[:id])
 
     if @tutorial.update_attributes(secure_params)
-      render json: { message: 'Update OK!', status: '200' }
+      render json: { message: 'Update OK!', status: 200 }
     else
-      render json: { error: 'Failed to update', status: '500' }
+      render json: { error: 'Failed to update', status: 500 }
     end
   end
 
@@ -49,9 +40,9 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.find(params[:id])
 
     if @tutorial.destroy
-      render json: { message: 'Delete OK!', status: '200' }
+      render json: { message: 'Delete OK!', status: 200 }
     else
-      render json: { error: 'Failed to delete', status: '500' }
+      render json: { error: 'Failed to delete', status: 500 }
     end
   end
 

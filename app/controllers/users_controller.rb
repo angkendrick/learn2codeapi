@@ -8,10 +8,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = @user.id # auto log in
-      redirect_to tutorials_path
+
     else
-      render json: { error: 'Failed to save to database', status: '500' }
+      render json: { error: 'Failed to save to database', status: 500 }
     end
   end
 
@@ -41,6 +40,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :first_name, :last_name, :avatar, :password, :password_confirmation)
+  end
+
+  def authenticate(params)
+    authenticate_or_request_with_http_token do |token|
+      dbToken = User.find_by(token: params[:token])
+      dbToken && token == dbToken
+    end
   end
 
 end

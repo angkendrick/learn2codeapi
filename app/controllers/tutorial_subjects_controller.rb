@@ -1,2 +1,3 @@
 class TutorialSubjectsController < ApplicationController
+
 end

@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   resources :tutorials
   resources :subjects
   resources :likes, only: [:index, :create, :destroy]
+
   get '/search', to: 'search#index'
+
+  post '/login', to: 'sessions#create'
+
 end
