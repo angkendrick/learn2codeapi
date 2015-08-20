@@ -5,12 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    user = User.new(user_params)
 
-    if @user.save
-
+    if user.save
+      user.generate_token
+      render json: user.to_json(except: [:created_at, :updated_at, :password_digest])
     else
-      render json: { error: 'Failed to save to database', status: 500 }
+      render json: { errors: :user.errors.as_json }, status: 422
     end
   end
 
