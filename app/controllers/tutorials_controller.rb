@@ -22,6 +22,7 @@ class TutorialsController < ApplicationController
 
   def show
     @tutorial = Tutorial.find(params[:id])
+    puts 1
     #render json: @tutorial.to_json(include: :user, except: [:created_at, :updated_at])
   end
 
@@ -29,9 +30,9 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.find(params[:id])
 
     if @tutorial.update_attributes(secure_params)
-      render json: { message: 'Update OK!', status: 200 }
+      render 'show'
     else
-      render json: { error: 'Failed to update', status: 500 }
+      render json: { errors: :@tutorial.errors.as_json }, status: 422
     end
   end
 
@@ -39,7 +40,8 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.find(params[:id])
 
     if @tutorial.destroy
-      render json: { message: 'Delete OK!', status: 200 }
+      @tutorial = Tutorial.all
+      render 'index'
     else
       render json: { error: 'Failed to delete', status: 500 }
     end

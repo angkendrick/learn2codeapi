@@ -14,6 +14,5 @@ json.user do
   json.username @tutorial.user.username
   json.email @tutorial.user.email
   json.avatar @tutorial.user.avatar
-
 end
 

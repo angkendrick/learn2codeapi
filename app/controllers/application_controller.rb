@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+
   def require_login
     authenticate_or_request_with_http_token do |token, options|
-      User.find_by(token: token)
+     User.find_by(token: token)
     end
-
   end
 
 
