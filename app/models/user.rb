@@ -19,5 +19,4 @@ class User < ActiveRecord::Base
     self.update token: SecureRandom.base64.tr('+/=', 'Qrt')
   end
 
-
 end

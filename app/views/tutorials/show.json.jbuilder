@@ -18,11 +18,11 @@ end
 
 json.reviews do
   json.array! @tutorial.reviews do |review|
-      json.rating review.rating
-      json.description review.description
-      json.username review.user.username
-      json.first_name review.user.first_name
-      json.last_name review.user.last_name
+    json.rating review.rating
+    json.description review.description
+    json.username review.user.username
+    json.first_name review.user.first_name
+    json.last_name review.user.last_name
   end
 end
 

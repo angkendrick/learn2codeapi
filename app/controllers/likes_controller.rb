@@ -8,7 +8,7 @@ class LikesController < ApplicationController
   end
 
   def show
-    @likes = Like.where(user_id: params['id'])
+    @likes = Like.where(user_id: params['id']) #not really needed
   end
 
   def destroy
@@ -25,7 +25,7 @@ class LikesController < ApplicationController
   protected
 
   def secure_params
-    params.require(:like).permit(:user_id, :tutorial_id, :completed)
+    params.require(:like).permit(:tutorial_id, :completed).merge(user_id: get_id)
   end
 
 end

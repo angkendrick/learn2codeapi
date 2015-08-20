@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
   protected
 
   def secure_params
-    params.require(:review).permit(:user_id, :tutorial_id, :rating, :description)
+    params.require(:review).permit(:tutorial_id, :rating, :description).merge(user_id: get_id)
   end
 
 end

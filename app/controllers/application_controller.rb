@@ -14,5 +14,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_id
+    authenticate_or_request_with_http_token do |token, options|
+      user = User.find_by(token: token)
+      user.id
+    end
+  end
 
 end
