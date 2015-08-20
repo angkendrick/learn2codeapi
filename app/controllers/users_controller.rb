@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-
     if user.save
       user.generate_token
       render json: user.to_json(except: [:created_at, :updated_at, :password_digest])
