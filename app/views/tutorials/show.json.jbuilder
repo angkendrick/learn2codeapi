@@ -16,3 +16,13 @@ json.user do
   json.avatar @tutorial.user.avatar
 end
 
+json.reviews do
+  @tutorial.reviews.each do |review|
+    json.rating review.rating
+    json.description review.description
+    json.username review.user.username
+    json.first_name review.user.first_name
+    json.last_name review.user.last_name
+  end
+end
+
