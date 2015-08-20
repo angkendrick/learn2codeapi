@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
-
   def create
     user = User.new(user_params)
 
@@ -17,25 +13,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(get_id)
-
     if @user
-      #render json: user
+      #render on view
     else
-
+      render json: { errors: :@user.errors.as_json }, status: 422
     end
-
-  end
-
-  def edit
-    @user = User.find(current_user.id)
   end
 
   def update
-    @user = User.find(current_user.id)
-    if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+    user = User.find(get_id)
+    if user.update_attributes(user_params)
+      render json: user.to_json(except: [:token, :created_at, :updated_at, :password_digest])
     else
-      render :edit
+      render json: { errors: :user.errors.as_json }, status: 422
     end
   end
 

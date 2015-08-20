@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resource :user, format: 'json'
-  resources :tutorials, format: 'json'
-  resources :subjects, format: 'json'
+  resource :user, only: [:create, :show, :update], format: 'json'
+  resources :tutorials, only: [:index, :create, :show, :update, :destroy], format: 'json'
+  #resources :subjects, format: 'json'
   resources :likes, only: [:show, :create, :destroy], format: 'json'
   resources :reviews, only: [:create, :destroy], format: 'json'
 

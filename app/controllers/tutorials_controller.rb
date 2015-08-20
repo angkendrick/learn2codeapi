@@ -5,11 +5,9 @@ class TutorialsController < ApplicationController
   def index
     @tutorials = Tutorial.all
     #render json: @tutorials.to_json(include: :subjects, except: [:created_at, :updated_at])
-
   end
 
   def create
-
     @tutorial = Tutorial.new(secure_params)
 
     if @tutorial.save
@@ -17,7 +15,6 @@ class TutorialsController < ApplicationController
     else
       render json: { errors: :@tutorial.errors.as_json }, status: 422
     end
-
   end
 
   def show
