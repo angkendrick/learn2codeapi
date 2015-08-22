@@ -22,6 +22,7 @@ json.reviews do
   json.array! @user.reviews do |review|
     json.review_tutorial_id  review.tutorial_id
     json.review_rating  review.rating
+    json.review_description review.description
     json.tutorial_name review.tutorial.name
     json.tutorial_description review.tutorial.description
     json.tutorial_url review.tutorial.url
