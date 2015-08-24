@@ -32,6 +32,7 @@ json.user_likes do
     json.like_id like.id
     json.tutorial_id like.tutorial_id
     json.like_completed like.completed
+    json.id like.id
   end
 end
 
