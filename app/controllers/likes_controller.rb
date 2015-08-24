@@ -12,9 +12,10 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    userLike = User.find(get_id).likes.find_by(tutorial_id:params['id'])
+    #userLike = User.find(get_id).likes.find_by(tutorial_id:params['id'])
+    like = Like.find(params['id'])
 
-    if userLike.destroy
+    if like.destroy
       @likes = Like.all
       render 'show'
     else
