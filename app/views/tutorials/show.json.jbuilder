@@ -32,7 +32,13 @@ json.user_likes do
     json.like_id like.id
     json.tutorial_id like.tutorial_id
     json.like_completed like.completed
-    json.id like.id
+  end
+end
+
+json.user_reviews do
+  json.array! @user_review do |review|
+    json.review_id review.id
+    json.tutorial_id review.tutorial_id
   end
 end
 

@@ -18,8 +18,10 @@ class TutorialsController < ApplicationController
   end
 
   def show
+    user_id = get_id
     @tutorial = Tutorial.find(params[:id])
-    @user_like = Tutorial.find(params[:id]).likes.where(user_id:get_id)
+    @user_like = Tutorial.find(params[:id]).likes.where(user_id:user_id)
+    @user_review = Tutorial.find(params[:id]).reviews.where(user_id:user_id)
 
     #render json: @tutorial.to_json(include: :user, except: [:created_at, :updated_at])
   end
