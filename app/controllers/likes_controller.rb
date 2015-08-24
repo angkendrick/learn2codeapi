@@ -16,8 +16,7 @@ class LikesController < ApplicationController
     like = Like.find(params['id'])
 
     if like.destroy
-      @likes = Like.all
-      render 'show'
+      render json: like.to_json(except: [:created_at, :updated_at])
     else
       render json: { errors: :like.errors.as_json }, status: 422
     end
