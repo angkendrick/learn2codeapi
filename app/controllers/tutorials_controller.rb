@@ -19,7 +19,6 @@ class TutorialsController < ApplicationController
 
   def show
     @tutorial = Tutorial.find(params[:id])
-    puts 1
     #render json: @tutorial.to_json(include: :user, except: [:created_at, :updated_at])
   end
 

@@ -9,6 +9,7 @@ json.format @tutorial.format
 json.company @tutorial.company
 
 json.user do
+  json.user_id @tutorial.user.id
   json.first_name @tutorial.user.first_name
   json.last_name @tutorial.user.last_name
   json.username @tutorial.user.username
