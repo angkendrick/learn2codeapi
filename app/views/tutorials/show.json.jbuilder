@@ -32,6 +32,7 @@ json.reviews do
     json.username review.user.username
     json.first_name review.user.first_name
     json.last_name review.user.last_name
+    json.avatar review.user.avatar
   end
 end
 
@@ -47,6 +48,14 @@ json.user_reviews do
   json.array! @user_review do |review|
     json.review_id review.id
     json.tutorial_id review.tutorial_id
+  end
+end
+
+json.related_tutorials do
+  json.array! @related_tutorials do |tutorial|
+    json.tutorial_id tutorial.id
+    json.tutorial_url tutorial.url
+    json.tutorial_image tutorial.tutorialimage
   end
 end
 

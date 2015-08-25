@@ -22,6 +22,9 @@ class TutorialsController < ApplicationController
     @tutorial = Tutorial.find(params[:id])
     @user_like = Tutorial.find(params[:id]).likes.where(user_id:user_id)
     @user_review = Tutorial.find(params[:id]).reviews.where(user_id:user_id)
+    ts = TutorialSubject.where(subject_id:@tutorial.subjects[0].id)
+
+    @related_tutorials = Tutorial.where(id:ts.map(&:tutorial_id))
 
     #render json: @tutorial.to_json(include: :user, except: [:created_at, :updated_at])
   end
