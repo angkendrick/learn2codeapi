@@ -8,6 +8,7 @@ json.likes do
   json.array! @user.likes do |like|
     json.tutorial_id like.tutorial.id
     json.tutorial_name like.tutorial.name
+    json.tutorial_url like.tutorial.url
     json.like_completed like.completed
     json.like_created_at like.created_at
     json.subject do

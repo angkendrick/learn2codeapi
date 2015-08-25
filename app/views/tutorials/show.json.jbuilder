@@ -17,6 +17,14 @@ json.user do
   json.avatar @tutorial.user.avatar
 end
 
+json.subjects do
+  json.array! @tutorial.subjects do |subject|
+    json.subject_id subject.id
+    json.subject_name subject.name
+    json.subject_description subject.description
+  end
+end
+
 json.reviews do
   json.array! @tutorial.reviews do |review|
     json.rating review.rating
