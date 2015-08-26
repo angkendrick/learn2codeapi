@@ -11,6 +11,19 @@ class LikesController < ApplicationController
     @likes = Like.where(user_id: params['id']) #not really needed
   end
 
+  def update
+    like = Like.find(params['id'])
+
+    params['completed'] == 'toTrue' ? like.completed = true : like.completed = false
+
+    if like.save
+      render json: like.to_json(except: [:created_at, :updated_at])
+    else
+      render json: { errors: :like.errors.as_json }, status: 422
+    end
+
+  end
+
   def destroy
     #userLike = User.find(get_id).likes.find_by(tutorial_id:params['id'])
     like = Like.find(params['id'])

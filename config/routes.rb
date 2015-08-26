@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resource :user, only: [:create, :show, :update], format: 'json'
   resources :tutorials, only: [:index, :create, :show, :update, :destroy], format: 'json'
   #resources :subjects, format: 'json'
-  resources :likes, only: [:show, :create, :destroy], format: 'json'
+  resources :likes, only: [:show, :create, :destroy, :update], format: 'json'
   resources :reviews, only: [:create, :destroy], format: 'json'
 
   get '/search', to: 'search#index', format: 'json'
