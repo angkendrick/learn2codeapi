@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(get_id)
+    @tutorials = Tutorial.all
     if @user
       #render on view
     else

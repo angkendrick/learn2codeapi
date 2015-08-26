@@ -38,3 +38,12 @@ json.reviews do
     end
   end
 end
+
+json.tutorials do
+  json.array! @tutorials do |tutorial|
+    json.tutorial_id tutorial.id
+    json.tutorial_url tutorial.url
+    json.tutorial_image tutorial.tutorialimage
+    json.tutorial_name tutorial.name
+  end
+end
