@@ -25,10 +25,11 @@ Subject.create(name: 'CSS', description: 'CSS stands for "Cascading Style Sheet.
 
 User.create(username: "TestUser", first_name: "John", password: "123456", password_confirmation: "123456", last_name: "Smith", email: "John.Smith@gmail.com")
 
-Tutorial.create(name: 'Try Ruby', description: '15-minute guided introduction to common Ruby methods', url: 'http://tryruby.org/', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Code School')
-Tutorial.create(name: 'Ruby in 100 Minutes', description: 'Overview of Ruby that will probably take you more than 100 minutes to complete', url: 'http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html', cost: 0.0, difficulty: 'beginner', format: 'article', company: 'Jumpstart Labs')
-Tutorial.create(name: 'Language Skills: Javascript', description: 'Learn the fundamentals of JavaScript, the programming language of the Web.', url: 'https://www.codecademy.com/tracks/javascript', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Codecademy')
+# Tutorial.create(name: 'Try Ruby', description: '15-minute guided introduction to common Ruby methods', url: 'http://tryruby.org/', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Code School')
+# Tutorial.create(name: 'Ruby in 100 Minutes', description: 'Overview of Ruby that will probably take you more than 100 minutes to complete', url: 'http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html', cost: 0.0, difficulty: 'beginner', format: 'article', company: 'Jumpstart Labs')
+# Tutorial.create(name: 'Language Skills: Javascript', description: 'Learn the fundamentals of JavaScript, the programming language of the Web.', url: 'https://www.codecademy.com/tracks/javascript', cost: 0.0, difficulty: 'beginner', format: 'interactive', company: 'Codecademy')
+# Tutorial.create(name: 'Ruby Primer', description: 'Online walkthrough that quickly goes through basic Ruby concepts but does not go into too much detail.', url: 'https://rubymonk.com/learning/books/1-ruby-primer/chapters/6-objects/lessons/35-introduction-to-objects', tutorialimage: '/uploads/tutorial/tutorialimage/4/rubymonk_primer.jpeg', cost: 0.0, difficulty: 'Intermediate', format: 'Interactive', company: 'RubyMonk')
 
-TutorialSubject.create(tutorial_id: 1, subject_id: 1)
-TutorialSubject.create(tutorial_id: 2, subject_id: 1)
-TutorialSubject.create(tutorial_id: 3, subject_id: 3)
+# TutorialSubject.create(tutorial_id: 1, subject_id: 1)
+# TutorialSubject.create(tutorial_id: 2, subject_id: 1)
+# TutorialSubject.create(tutorial_id: 3, subject_id: 3)

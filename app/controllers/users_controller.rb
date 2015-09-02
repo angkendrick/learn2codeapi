@@ -1,5 +1,20 @@
 class UsersController < ApplicationController
 
+  # def new
+  #   @user = User.new
+  # end
+
+  # def create
+  #   @user = User.new(user_params)
+
+  #   if @user.save
+  #     # redirect_to tutorials_path, notice: "Tutorial, #{@tutorial.name} submitted"
+  #     render json: @user
+  #   else
+  #     render json: {}
+  #   end
+  # end
+
   def create
     user = User.new(user_params)
     if user.save

@@ -1,6 +1,6 @@
 class TutorialsController < ApplicationController
 
-  before_action :require_login, only: [:create, :update, :destroy]
+  #before_action :require_login, only: [:create, :update, :destroy]
 
   def index
     @tutorials = Tutorial.all
@@ -16,6 +16,23 @@ class TutorialsController < ApplicationController
       render json: { errors: :@tutorial.errors.as_json }, status: 422
     end
   end
+
+  # def create
+  #   @tutorial = Tutorial.new(secure_params)
+  #   @tutorial.user = User.first
+  #   @tutorial.subjects << Subject.find((params[:tutorial_subjects][:subject_id]).to_i)
+
+  #   if @tutorial.save
+  #     # redirect_to tutorials_path, notice: "Tutorial, #{@tutorial.name} submitted"
+  #     render json: @tutorial
+  #   else
+  #     render json: {}
+  #   end
+  # end
+
+  # def new
+  #   @tutorial = Tutorial.new
+  # end
 
   def show
     user_id = get_id
